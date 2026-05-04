@@ -3,9 +3,16 @@
 > Curso oficial de **OJB Soluciones Informáticas**
 > Convierte tus ideas en soluciones reales en minutos con Claude IA.
 
+[![Sitio web](https://img.shields.io/badge/🌐_Ver_curso_online-jomarbp.github.io-E8742C?style=for-the-badge)](https://jomarbp.github.io/programando-con-claude-ia/)
 [![Claude](https://img.shields.io/badge/Claude-IA-E8742C?style=for-the-badge)](https://claude.ai)
 [![License](https://img.shields.io/badge/license-MIT-1F3A5F?style=for-the-badge)](LICENSE)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-970%20779%20871-25D366?style=for-the-badge&logo=whatsapp)](https://wa.me/51970779871)
+
+🌐 **Sitio web del curso**: https://jomarbp.github.io/programando-con-claude-ia/
+
+🎨 **Demos en vivo**:
+- [Landing Page Demo](https://jomarbp.github.io/programando-con-claude-ia/demos/landing/)
+- [Tienda Online Demo](https://jomarbp.github.io/programando-con-claude-ia/demos/tienda/)
 
 ---
 
