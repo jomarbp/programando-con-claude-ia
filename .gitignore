@@ -1,0 +1,49 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Configuración local sensible
+claude_desktop_config.json
+.env
+.env.local
+*.pem
+*.key
+
+# Node / npm
+node_modules/
+package-lock.json
+npm-debug.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# PHP
+vendor/
+composer.lock
+
+# Bases de datos
+*.sqlite
+*.db
+
+# Temporales
+tmp/
+temp/
+*.tmp
+
+# Carpetas de respaldo personales
+backup/
+respaldo-personal/
