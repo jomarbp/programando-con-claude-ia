@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Certificado - Programando con Claude IA</title>
+<style>
+@page { size: A4 landscape; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Georgia', serif;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.cert {
+  width: 297mm;
+  height: 210mm;
+  background: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.borde-exterior {
+  position: absolute;
+  top: 15mm; left: 15mm; right: 15mm; bottom: 15mm;
+  border: 2px solid #E8742C;
+}
+.borde-interior {
+  position: absolute;
+  top: 18mm; left: 18mm; right: 18mm; bottom: 18mm;
+  border: 1px solid #1F3A5F;
+}
+.esquina {
+  position: absolute;
+  width: 60px; height: 60px;
+  border-style: solid;
+  border-color: #E8742C;
+}
+.esquina.tl { top: 12mm; left: 12mm; border-width: 4px 0 0 4px; }
+.esquina.tr { top: 12mm; right: 12mm; border-width: 4px 4px 0 0; }
+.esquina.bl { bottom: 12mm; left: 12mm; border-width: 0 0 4px 4px; }
+.esquina.br { bottom: 12mm; right: 12mm; border-width: 0 4px 4px 0; }
+
+.contenido {
+  position: absolute;
+  top: 30mm; left: 30mm; right: 30mm; bottom: 30mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1F3A5F;
+  margin-bottom: 5mm;
+}
+.logo span { color: #E8742C; }
+.encabezado {
+  font-size: 16px;
+  color: #666;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 5mm;
+}
+.titulo {
+  font-size: 56px;
+  font-weight: bold;
+  color: #1F3A5F;
+  font-family: 'Georgia', serif;
+  margin-bottom: 8mm;
+  letter-spacing: 2px;
+}
+.intro {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5mm;
+}
+.nombre {
+  font-size: 42px;
+  color: #E8742C;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 8mm;
+  border-bottom: 2px solid #1F3A5F;
+  padding-bottom: 3mm;
+  min-width: 60%;
+}
+.descripcion {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  max-width: 180mm;
+  margin-bottom: 12mm;
+}
+.descripcion strong { color: #1F3A5F; }
+
+.firmas {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+  padding: 0 20mm;
+}
+.firma {
+  text-align: center;
+  flex: 1;
+}
+.firma-linea {
+  width: 60mm;
+  border-top: 1.5px solid #333;
+  margin: 0 auto 2mm;
+}
+.firma-nombre {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1F3A5F;
+}
+.firma-cargo {
+  font-size: 11px;
+  color: #777;
+  margin-top: 1mm;
+}
+.sello {
+  position: absolute;
+  right: 30mm;
+  bottom: 35mm;
+  width: 90px;
+  height: 90px;
+  border: 3px solid #E8742C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 9px;
+  font-weight: bold;
+  color: #E8742C;
+  text-align: center;
+  transform: rotate(-15deg);
+  opacity: 0.85;
+}
+.sello-grande { font-size: 13px; margin: 2px 0; }
+
+.footer {
+  position: absolute;
+  bottom: 20mm;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 10px;
+  color: #999;
+}
+
+@media print {
+  body { background: white; padding: 0; }
+  .cert { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cert">
+  <div class="borde-exterior"></div>
+  <div class="borde-interior"></div>
+  <div class="esquina tl"></div>
+  <div class="esquina tr"></div>
+  <div class="esquina bl"></div>
+  <div class="esquina br"></div>
+
+  <div class="contenido">
+    <div class="logo">OJB<span>.</span> Soluciones Informáticas</div>
+    <div class="encabezado">Certificado de Participación</div>
+    <h1 class="titulo">Diploma</h1>
+    <div class="intro">Se otorga el presente diploma a:</div>
+    <div class="nombre" id="nombre-alumno">[NOMBRE DEL PARTICIPANTE]</div>
+    <div class="descripcion">
+      Por haber completado satisfactoriamente el curso<br/>
+      <strong>"Programando con Claude IA"</strong><br/>
+      con duración de <strong>3 horas</strong>, dominando los fundamentos del prompt engineering,
+      el uso de skills, integración con MCP y la construcción de proyectos reales con
+      Claude IA en su versión gratuita.
+    </div>
+
+    <div class="firmas">
+      <div class="firma">
+        <div class="firma-linea"></div>
+        <div class="firma-nombre">Joel Mario Beltrán</div>
+        <div class="firma-cargo">Director · OJB Soluciones Informáticas</div>
+      </div>
+      <div class="firma">
+        <div class="firma-linea"></div>
+        <div class="firma-nombre" id="fecha-emision">[FECHA]</div>
+        <div class="firma-cargo">Fecha de emisión</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sello">
+    <div>OJB</div>
+    <div class="sello-grande">CLAUDE IA</div>
+    <div>2026</div>
+  </div>
+
+  <div class="footer">
+    Verificable en https://jomarbp.github.io/programando-con-claude-ia/  ·  ID: <span id="cert-id">CERT-XXXX</span>
+  </div>
+</div>
+
+<script>
+// Personalización rápida vía URL: ?nombre=Juan%20Perez&fecha=2026-05-15&id=CERT-0001
+const params = new URLSearchParams(location.search);
+const nombre = params.get('nombre');
+const fecha = params.get('fecha');
+const id = params.get('id');
+if (nombre) document.getElementById('nombre-alumno').textContent = nombre;
+if (fecha) document.getElementById('fecha-emision').textContent = new Date(fecha).toLocaleDateString('es-PE', { day:'numeric', month:'long', year:'numeric' });
+if (id) document.getElementById('cert-id').textContent = id;
+</script>
+
+</body>
+</html>

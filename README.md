@@ -54,8 +54,14 @@ programando-con-claude-ia/
 ├── scripts/                         ← Automatizaciones
 │   ├── instalar-skills.ps1
 │   ├── instalar-skills.sh
-│   └── verificar-entorno.ps1
-└── recursos/                        ← PDFs, imágenes, capturas
+│   ├── verificar-entorno.ps1
+│   ├── generar-qr.py                ← Códigos QR
+│   └── generar-certificados.py      ← Certificados masivos
+├── recursos/
+│   ├── qr/                          ← QR del curso, demos, WhatsApp
+│   └── certificado/                 ← Plantilla A4 horizontal
+├── .github/workflows/               ← CI/CD: validación automática
+└── docs/dominio/  docs/analytics/   ← Guías opcionales
 ```
 
 ---
@@ -107,6 +113,14 @@ cd bloque-0-setup
 - 🤖 [Diferencias entre Opus, Sonnet y Haiku](docs/02-modelos-de-claude.md)
 - 🛠 [Guía completa de Skills (instalación desde GitHub)](docs/03-skills-completo.md)
 - 🔌 [MCP paso a paso](docs/04-mcp-paso-a-paso.md)
+- 🌍 [Configurar dominio propio](docs/dominio/README.md)
+- 📊 [Agregar Google Analytics](docs/analytics/README.md)
+
+## 🎁 Material adicional
+
+- 📱 [Códigos QR para flyers e impresiones](recursos/qr/README.md)
+- 🎓 [Plantilla de certificado profesional](recursos/certificado/README.md)
+- ⚙️ [GitHub Actions de validación](.github/workflows/validar.yml)
 
 ---
 

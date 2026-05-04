@@ -1,0 +1,13 @@
+{
+  "ignorePatterns": [
+    { "pattern": "^https://wa.me" },
+    { "pattern": "^https://formspree.io" },
+    { "pattern": "^http://localhost" },
+    { "pattern": "REEMPLAZAR_AQUI" }
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206, 301, 302, 999]
+}

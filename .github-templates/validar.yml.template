@@ -1,0 +1,41 @@
+name: Validar contenido
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    name: Validar Markdown y HTML
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validar enlaces en Markdown
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          config-file: '.github/markdown-link-check.json'
+        continue-on-error: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validar HTML
+        run: |
+          npm install -g html-validate
+          html-validate index.html demos/landing/index.html demos/tienda/index.html proyecto-respaldo/landing/index.html proyecto-respaldo/tienda/catalogo.html || true
+
+      - name: Listar archivos del repo
+        run: |
+          echo "## Archivos del curso" >> $GITHUB_STEP_SUMMARY
+          echo "- Bloques: $(ls -d bloque-*/ | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Prompts maestros: $(ls prompts-maestros/PM-*.md | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Documentación: $(ls docs/*.md | wc -l)" >> $GITHUB_STEP_SUMMARY
