@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Programando con Claude IA - OJB</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { brand: '#E8742C', azul: '#1F3A5F' },
+      animation: { 'fade-in-up': 'fadeInUp 0.8s ease-out' },
+      keyframes: {
+        fadeInUp: { '0%': { opacity: 0, transform: 'translateY(20px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } }
+      }
+    }
+  }
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-white">
+
+<!-- Navbar -->
+<nav class="fixed top-0 w-full bg-white/95 backdrop-blur shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#hero" class="text-2xl font-bold text-azul">OJB<span class="text-brand">.</span></a>
+    <div class="hidden md:flex gap-6 items-center">
+      <a href="#hero" class="hover:text-brand">Inicio</a>
+      <a href="#beneficios" class="hover:text-brand">Beneficios</a>
+      <a href="#temario" class="hover:text-brand">Temario</a>
+      <a href="#testimonios" class="hover:text-brand">Testimonios</a>
+      <a href="#contacto" class="hover:text-brand">Contacto</a>
+      <a href="#contacto" class="px-4 py-2 bg-brand text-white rounded-lg hover:bg-orange-600">Inscríbete</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero" class="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-orange-50 via-white to-blue-50">
+  <div class="max-w-4xl mx-auto px-4 text-center animate-fade-in-up">
+    <span class="inline-block px-4 py-1 bg-brand/10 text-brand rounded-full text-sm font-semibold mb-4">🚀 Curso 2026</span>
+    <h1 class="text-5xl md:text-6xl font-bold text-azul mb-4">Aprende Programación con <span class="text-brand">Inteligencia Artificial</span></h1>
+    <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Domina Claude IA y construye proyectos reales en horas, no en semanas.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="#contacto" class="px-6 py-3 bg-brand text-white rounded-lg font-semibold hover:bg-orange-600">Quiero inscribirme</a>
+      <a href="#temario" class="px-6 py-3 border-2 border-azul text-azul rounded-lg font-semibold hover:bg-azul hover:text-white">Ver temario</a>
+    </div>
+  </div>
+</section>
+
+<!-- Beneficios -->
+<section id="beneficios" class="py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-azul mb-12">Beneficios del curso</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 bg-white border rounded-xl text-center hover:shadow-lg transition">
+        <div class="text-5xl mb-3">🎯</div>
+        <h3 class="font-bold text-xl mb-2">Clases prácticas</h3>
+        <p class="text-gray-600">Aprende construyendo, no solo viendo.</p>
+      </div>
+      <div class="p-6 bg-white border rounded-xl text-center hover:shadow-lg transition">
+        <div class="text-5xl mb-3">🚀</div>
+        <h3 class="font-bold text-xl mb-2">Proyectos reales</h3>
+        <p class="text-gray-600">Llévate 2 proyectos funcionales al final.</p>
+      </div>
+      <div class="p-6 bg-white border rounded-xl text-center hover:shadow-lg transition">
+        <div class="text-5xl mb-3">🏆</div>
+        <h3 class="font-bold text-xl mb-2">Certificado incluido</h3>
+        <p class="text-gray-600">Acredita tus nuevas habilidades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cómo funciona -->
+<section class="py-20 px-4 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-azul mb-12">Cómo funciona</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-brand text-white rounded-full mx-auto flex items-center justify-center text-2xl font-bold">1</div>
+        <h3 class="font-bold mt-3">Inscríbete</h3>
+        <p class="text-sm text-gray-600 mt-1">Reserva tu cupo en minutos.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-brand text-white rounded-full mx-auto flex items-center justify-center text-2xl font-bold">2</div>
+        <h3 class="font-bold mt-3">Aprende</h3>
+        <p class="text-sm text-gray-600 mt-1">3 horas de contenido en vivo.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-brand text-white rounded-full mx-auto flex items-center justify-center text-2xl font-bold">3</div>
+        <h3 class="font-bold mt-3">Practica</h3>
+        <p class="text-sm text-gray-600 mt-1">Construye 2 proyectos reales.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-brand text-white rounded-full mx-auto flex items-center justify-center text-2xl font-bold">4</div>
+        <h3 class="font-bold mt-3">Certifícate</h3>
+        <p class="text-sm text-gray-600 mt-1">Recibe tu diploma digital.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Temario -->
+<section id="temario" class="py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-azul mb-12">Temario</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="p-5 border rounded-xl hover:shadow-lg transition"><div class="text-brand font-bold">Módulo 1</div><h3 class="font-bold">Introducción a Claude IA</h3></div>
+      <div class="p-5 border rounded-xl hover:shadow-lg transition"><div class="text-brand font-bold">Módulo 2</div><h3 class="font-bold">Prompts efectivos</h3></div>
+      <div class="p-5 border rounded-xl hover:shadow-lg transition"><div class="text-brand font-bold">Módulo 3</div><h3 class="font-bold">Skills de Claude</h3></div>
+      <div class="p-5 border rounded-xl hover:shadow-lg transition"><div class="text-brand font-bold">Módulo 4</div><h3 class="font-bold">Proyecto: Landing Page</h3></div>
+      <div class="p-5 border rounded-xl hover:shadow-lg transition"><div class="text-brand font-bold">Módulo 5</div><h3 class="font-bold">Proyecto: Tienda con MySQL</h3></div>
+      <div class="p-5 border rounded-xl hover:shadow-lg transition"><div class="text-brand font-bold">Módulo 6</div><h3 class="font-bold">MCP y siguientes pasos</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonios -->
+<section id="testimonios" class="py-20 px-4 bg-azul text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">Testimonios</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white/10 p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-12 h-12 bg-brand rounded-full flex items-center justify-center font-bold">MR</div>
+          <div><div class="font-bold">María R.</div><div class="text-sm text-gray-300">Diseñadora</div></div>
+        </div>
+        <p class="text-gray-200">"Hice mi primera landing en 1 hora. Increíble."</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-12 h-12 bg-brand rounded-full flex items-center justify-center font-bold">JL</div>
+          <div><div class="font-bold">Juan L.</div><div class="text-sm text-gray-300">Programador</div></div>
+        </div>
+        <p class="text-gray-200">"Multipliqué mi velocidad de desarrollo por 5."</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-12 h-12 bg-brand rounded-full flex items-center justify-center font-bold">AS</div>
+          <div><div class="font-bold">Ana S.</div><div class="text-sm text-gray-300">Emprendedora</div></div>
+        </div>
+        <p class="text-gray-200">"Lancé mi tienda online sin contratar a nadie."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="py-20 px-4">
+  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+    <div>
+      <h2 class="text-4xl font-bold text-azul mb-4">Inscríbete</h2>
+      <p class="text-gray-600 mb-6">Déjanos tus datos y te contactamos.</p>
+      <div class="space-y-2 text-gray-700">
+        <div>📱 WhatsApp: <a href="https://wa.me/51970779871" class="text-brand font-semibold">970 779 871</a></div>
+        <div>📍 Lima, Perú</div>
+      </div>
+    </div>
+    <form id="form" class="space-y-3">
+      <input name="nombre" required placeholder="Nombre completo" class="w-full px-4 py-3 border rounded-lg focus:border-brand focus:outline-none" />
+      <input name="email" type="email" required placeholder="Correo electrónico" class="w-full px-4 py-3 border rounded-lg focus:border-brand focus:outline-none" />
+      <input name="telefono" required placeholder="Teléfono" class="w-full px-4 py-3 border rounded-lg focus:border-brand focus:outline-none" />
+      <textarea name="mensaje" rows="3" placeholder="Mensaje" class="w-full px-4 py-3 border rounded-lg focus:border-brand focus:outline-none"></textarea>
+      <button class="w-full px-4 py-3 bg-brand text-white rounded-lg font-semibold hover:bg-orange-600">Enviar mensaje</button>
+      <div id="formMsg" class="text-center text-green-600 hidden">¡Mensaje enviado!</div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 bg-azul text-gray-300 text-center">
+  © 2026 OJB Soluciones Informáticas · Todos los derechos reservados
+</footer>
+
+<script>
+document.getElementById('form').onsubmit = e => {
+  e.preventDefault();
+  document.getElementById('formMsg').classList.remove('hidden');
+  e.target.reset();
+  setTimeout(() => document.getElementById('formMsg').classList.add('hidden'), 3000);
+};
+</script>
+
+</body>
+</html>

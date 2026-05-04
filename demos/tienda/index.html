@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tienda IA - Demo del curso</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: { brand: '#E8742C', azul: '#1F3A5F' } } } }
+</script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<div class="bg-yellow-100 text-yellow-900 px-4 py-2 text-sm text-center">
+  ⚠️ Demo estática. La versión completa usa MySQL + PHP —
+  <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/proyecto-respaldo/tienda" class="underline font-semibold">ver código completo</a>
+</div>
+
+<nav class="bg-white shadow-sm sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="../../" class="text-2xl font-bold text-azul">Tienda<span class="text-brand">IA</span></a>
+    <div class="flex gap-3 items-center">
+      <a href="../../" class="text-sm hover:text-brand">← Volver</a>
+      <button id="btnCarrito" class="relative p-2 hover:bg-gray-100 rounded-lg">
+        🛒
+        <span id="contadorCarrito" class="absolute -top-1 -right-1 bg-brand text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="bg-azul text-white py-12">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h1 class="text-4xl font-bold mb-2">Nuestro catálogo</h1>
+    <p class="text-gray-300">Productos generados con Claude IA</p>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 py-8">
+  <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+</main>
+
+<div id="modalCarrito" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-xl max-w-lg w-full p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-2xl font-bold text-azul">Tu carrito</h2>
+      <button id="cerrarModal" class="text-2xl">×</button>
+    </div>
+    <div id="contenidoCarrito" class="max-h-96 overflow-y-auto"></div>
+    <div class="mt-4 pt-4 border-t flex justify-between items-center">
+      <span class="font-bold">Total: S/ <span id="totalCarrito">0.00</span></span>
+      <div class="space-x-2">
+        <button id="vaciarCarrito" class="px-3 py-2 bg-gray-200 rounded">Vaciar</button>
+        <button class="px-3 py-2 bg-brand text-white rounded">Comprar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="hidden fixed bottom-6 right-6 bg-azul text-white px-4 py-3 rounded-lg shadow-lg"></div>
+
+<script>
+const productos = [
+  { id: 1, nombre: 'Curso Programando con Claude IA', categoria: 'Cursos', descripcion: 'Curso completo de 3 horas con proyectos reales', precio: 199.00, imagen: '🎓' },
+  { id: 2, nombre: 'Curso de Python para principiantes', categoria: 'Cursos', descripcion: 'Domina Python desde cero en 8 semanas', precio: 149.00, imagen: '🐍' },
+  { id: 3, nombre: 'Libro: Prompt Engineering Pro', categoria: 'Libros', descripcion: 'Manual definitivo del prompt engineering', precio: 49.90, imagen: '📘' },
+  { id: 4, nombre: 'Libro: IA para Negocios', categoria: 'Libros', descripcion: 'Cómo aplicar IA en tu empresa', precio: 59.90, imagen: '📗' },
+  { id: 5, nombre: 'Mentoría 1 hora', categoria: 'Mentorías', descripcion: 'Sesión personalizada con un experto', precio: 250.00, imagen: '👨‍🏫' },
+  { id: 6, nombre: 'Pack Completo IA', categoria: 'Cursos', descripcion: 'Todos los cursos + mentoría', precio: 499.00, imagen: '🎁' },
+  { id: 7, nombre: 'Curso de SQL avanzado', categoria: 'Cursos', descripcion: 'Aprende a sacarle el jugo a tus datos', precio: 129.00, imagen: '💾' },
+  { id: 8, nombre: 'Libro: MCP en profundidad', categoria: 'Libros', descripcion: 'Conecta Claude con todo', precio: 39.90, imagen: '📕' }
+];
+
+const $ = sel => document.querySelector(sel);
+let carrito = JSON.parse(localStorage.getItem('carrito_demo') || '[]');
+
+function guardarCarrito() {
+  localStorage.setItem('carrito_demo', JSON.stringify(carrito));
+  $('#contadorCarrito').textContent = carrito.reduce((s, i) => s + i.cantidad, 0);
+}
+
+function agregarAlCarrito(id) {
+  const producto = productos.find(p => p.id === id);
+  const existente = carrito.find(p => p.id === id);
+  if (existente) existente.cantidad += 1;
+  else carrito.push({ ...producto, cantidad: 1 });
+  guardarCarrito();
+  mostrarToast('✓ Producto agregado');
+}
+
+function mostrarToast(msg) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.remove('hidden');
+  setTimeout(() => t.classList.add('hidden'), 2000);
+}
+
+function renderCarrito() {
+  const cont = $('#contenidoCarrito');
+  if (carrito.length === 0) {
+    cont.innerHTML = '<p class="text-gray-500 text-center py-8">Tu carrito está vacío</p>';
+    $('#totalCarrito').textContent = '0.00';
+    return;
+  }
+  let total = 0;
+  cont.innerHTML = carrito.map(p => {
+    const subtotal = p.precio * p.cantidad;
+    total += subtotal;
+    return `<div class="flex justify-between py-2 border-b">
+      <div><div class="font-medium">${p.nombre}</div><div class="text-sm text-gray-500">${p.cantidad} × S/ ${p.precio.toFixed(2)}</div></div>
+      <div class="font-bold">S/ ${subtotal.toFixed(2)}</div>
+    </div>`;
+  }).join('');
+  $('#totalCarrito').textContent = total.toFixed(2);
+}
+
+$('#btnCarrito').onclick = () => { renderCarrito(); $('#modalCarrito').classList.remove('hidden'); };
+$('#cerrarModal').onclick = () => $('#modalCarrito').classList.add('hidden');
+$('#vaciarCarrito').onclick = () => { carrito = []; guardarCarrito(); renderCarrito(); };
+
+$('#catalogo').innerHTML = productos.map(p => `
+  <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+    <div class="aspect-square bg-gradient-to-br from-orange-50 to-blue-50 flex items-center justify-center text-7xl">${p.imagen}</div>
+    <div class="p-4">
+      <div class="text-xs text-brand font-semibold uppercase">${p.categoria}</div>
+      <h3 class="font-bold mt-1">${p.nombre}</h3>
+      <p class="text-sm text-gray-600 mt-1 line-clamp-2">${p.descripcion}</p>
+      <div class="mt-3 flex items-center justify-between">
+        <span class="text-xl font-bold text-azul">S/ ${p.precio.toFixed(2)}</span>
+        <button onclick="agregarAlCarrito(${p.id})" class="px-3 py-2 bg-brand text-white rounded-lg hover:bg-orange-600 transition">Agregar</button>
+      </div>
+    </div>
+  </div>
+`).join('');
+
+guardarCarrito();
+</script>
+
+</body>
+</html>

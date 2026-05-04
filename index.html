@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Programando con Claude IA - OJB Soluciones Informáticas</title>
+<meta name="description" content="Curso completo de programación con Claude IA. Aprende prompts, skills y MCP construyendo proyectos reales en 3 horas." />
+<meta property="og:title" content="Programando con Claude IA" />
+<meta property="og:description" content="Curso de 3 horas: convierte tus ideas en proyectos reales con Claude IA." />
+<meta property="og:type" content="website" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { brand: '#E8742C', azul: '#1F3A5F', azulClaro: '#2C5687' },
+    animation: {
+      'fade-in-up': 'fadeInUp 0.8s ease-out',
+      'float': 'float 3s ease-in-out infinite'
+    },
+    keyframes: {
+      fadeInUp: { '0%': { opacity: 0, transform: 'translateY(30px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+      float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+    }
+  } }
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+.gradient-hero { background: linear-gradient(135deg, #1F3A5F 0%, #E8742C 100%); }
+.gradient-text { background: linear-gradient(135deg, #E8742C 0%, #1F3A5F 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+</style>
+</head>
+<body class="bg-white">
+
+<!-- Navbar -->
+<nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#" class="text-2xl font-bold text-azul">OJB<span class="text-brand">.</span> <span class="text-sm font-normal text-gray-500 hidden sm:inline">Soluciones Informáticas</span></a>
+    <div class="hidden md:flex gap-6 items-center text-sm">
+      <a href="#contenido" class="hover:text-brand">Contenido</a>
+      <a href="#bloques" class="hover:text-brand">Bloques</a>
+      <a href="#recursos" class="hover:text-brand">Recursos</a>
+      <a href="#demos" class="hover:text-brand">Demos</a>
+      <a href="https://github.com/jomarbp/programando-con-claude-ia" target="_blank" class="px-4 py-2 bg-azul text-white rounded-lg hover:bg-azulClaro">⭐ GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="gradient-hero text-white pt-32 pb-20 px-4 relative overflow-hidden">
+  <div class="max-w-5xl mx-auto text-center relative z-10 animate-fade-in-up">
+    <span class="inline-block px-4 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-6">🚀 Curso 2026 · Versión gratuita de Claude</span>
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      Programando con<br/>
+      <span class="text-orange-300">Claude IA</span>
+    </h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-95">
+      Convierte tus ideas en soluciones reales en <strong>minutos o segundos</strong>.
+      Domina prompts, skills y MCP construyendo 2 proyectos reales en 3 horas.
+    </p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="#bloques" class="px-8 py-4 bg-white text-azul rounded-lg font-bold hover:bg-gray-100 transition shadow-lg">📚 Ver el curso</a>
+      <a href="https://github.com/jomarbp/programando-con-claude-ia" target="_blank" class="px-8 py-4 bg-brand text-white rounded-lg font-bold hover:bg-orange-600 transition shadow-lg">⚡ Empezar ahora</a>
+    </div>
+    <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-center">
+      <div><div class="text-3xl font-bold">3h</div><div class="text-sm opacity-80">Duración</div></div>
+      <div><div class="text-3xl font-bold">7</div><div class="text-sm opacity-80">Bloques</div></div>
+      <div><div class="text-3xl font-bold">11</div><div class="text-sm opacity-80">Prompts maestros</div></div>
+      <div><div class="text-3xl font-bold">2</div><div class="text-sm opacity-80">Proyectos reales</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- Beneficios -->
+<section id="contenido" class="py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-azul mb-4">¿Qué lograrás?</h2>
+    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">En 3 horas pasarás de no saber nada de IA a tener proyectos reales funcionando.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-8 border rounded-2xl card-hover bg-white">
+        <div class="text-5xl mb-4">🎯</div>
+        <h3 class="font-bold text-xl mb-2 text-azul">Prompts efectivos</h3>
+        <p class="text-gray-600">Aprende los 5 componentes del prompt perfecto y técnicas avanzadas como few-shot e iteración.</p>
+      </div>
+      <div class="p-8 border rounded-2xl card-hover bg-white">
+        <div class="text-5xl mb-4">🛠</div>
+        <h3 class="font-bold text-xl mb-2 text-azul">Skills paso a paso</h3>
+        <p class="text-gray-600">Instala, configura y crea skills de Claude. Aprende dónde van, cómo se descargan de GitHub.</p>
+      </div>
+      <div class="p-8 border rounded-2xl card-hover bg-white">
+        <div class="text-5xl mb-4">🔌</div>
+        <h3 class="font-bold text-xl mb-2 text-azul">MCP en vivo</h3>
+        <p class="text-gray-600">Conecta Claude con MySQL, GitHub y filesystem. Mira cómo Claude opera tu base de datos real.</p>
+      </div>
+      <div class="p-8 border rounded-2xl card-hover bg-white">
+        <div class="text-5xl mb-4">🚀</div>
+        <h3 class="font-bold text-xl mb-2 text-azul">Landing Page</h3>
+        <p class="text-gray-600">Construye tu primera landing profesional en 45 minutos con HTML + Tailwind.</p>
+      </div>
+      <div class="p-8 border rounded-2xl card-hover bg-white">
+        <div class="text-5xl mb-4">🛒</div>
+        <h3 class="font-bold text-xl mb-2 text-azul">Tienda con MySQL</h3>
+        <p class="text-gray-600">Diseña, programa y conecta una tienda online completa con base de datos real.</p>
+      </div>
+      <div class="p-8 border rounded-2xl card-hover bg-white">
+        <div class="text-5xl mb-4">💰</div>
+        <h3 class="font-bold text-xl mb-2 text-azul">Ahorra tokens</h3>
+        <p class="text-gray-600">10 reglas de oro para sacarle el máximo a Claude gratuito sin agotar el límite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bloques -->
+<section id="bloques" class="py-20 px-4 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-azul mb-4">Itinerario del curso</h2>
+    <p class="text-center text-gray-600 mb-12">7 bloques diseñados para 3 horas exactas</p>
+
+    <div class="space-y-4">
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/bloque-0-setup" target="_blank" class="block p-6 bg-white rounded-2xl card-hover border-l-4 border-brand">
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-bold text-brand">0</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-xl text-azul">Bienvenida y Setup</h3>
+            <p class="text-gray-600">Instalación de Claude Code, primera prueba.</p>
+          </div>
+          <span class="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full font-semibold">15 min</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/bloque-1-prompting" target="_blank" class="block p-6 bg-white rounded-2xl card-hover border-l-4 border-brand">
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-bold text-brand">1</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-xl text-azul">El arte del prompting</h3>
+            <p class="text-gray-600">5 componentes del prompt perfecto + técnicas avanzadas.</p>
+          </div>
+          <span class="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full font-semibold">25 min</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/bloque-2-landing-page" target="_blank" class="block p-6 bg-white rounded-2xl card-hover border-l-4 border-brand">
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-bold text-brand">2</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-xl text-azul">Proyecto 1: Landing Page</h3>
+            <p class="text-gray-600">Página one-page completa con HTML + Tailwind.</p>
+          </div>
+          <span class="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full font-semibold">45 min</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/bloque-3-skills" target="_blank" class="block p-6 bg-white rounded-2xl card-hover border-l-4 border-brand">
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-bold text-brand">3</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-xl text-azul">Skills de Claude paso a paso</h3>
+            <p class="text-gray-600">Qué son, dónde van, cómo descargarlas de GitHub.</p>
+          </div>
+          <span class="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full font-semibold">15 min</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/bloque-4-tienda-mysql" target="_blank" class="block p-6 bg-white rounded-2xl card-hover border-l-4 border-brand">
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-bold text-brand">4</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-xl text-azul">Proyecto 2: Tienda con MySQL</h3>
+            <p class="text-gray-600">Frontend + backend PHP + base de datos.</p>
+          </div>
+          <span class="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full font-semibold">45 min</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/bloque-5-mcp" target="_blank" class="block p-6 bg-white rounded-2xl card-hover border-l-4 border-brand">
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-bold text-brand">5</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-xl text-azul">MCP: Claude conectado al mundo</h3>
+            <p class="text-gray-600">Demo en vivo: Claude consulta tu MySQL real.</p>
+          </div>
+          <span class="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full font-semibold">25 min</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/bloque-6-cierre" target="_blank" class="block p-6 bg-white rounded-2xl card-hover border-l-4 border-brand">
+        <div class="flex items-center gap-4">
+          <div class="text-3xl font-bold text-brand">6</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-xl text-azul">Cierre y siguientes pasos</h3>
+            <p class="text-gray-600">Sorteo de Claude Pro + hoja de ruta.</p>
+          </div>
+          <span class="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full font-semibold">10 min</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Demos -->
+<section id="demos" class="py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-azul mb-4">Demos en vivo</h2>
+    <p class="text-center text-gray-600 mb-12">Mira los proyectos finales del curso funcionando</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="demos/landing/" target="_blank" class="block p-8 bg-gradient-to-br from-orange-50 to-blue-50 rounded-2xl card-hover">
+        <div class="text-6xl mb-4">🎨</div>
+        <h3 class="text-2xl font-bold text-azul mb-2">Landing Page Demo</h3>
+        <p class="text-gray-700 mb-4">Landing completa de una página, responsive, con secciones de hero, beneficios, temario, testimonios y formulario.</p>
+        <span class="text-brand font-semibold">Ver demo →</span>
+      </a>
+
+      <a href="demos/tienda/" target="_blank" class="block p-8 bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl card-hover">
+        <div class="text-6xl mb-4">🛒</div>
+        <h3 class="text-2xl font-bold text-azul mb-2">Tienda Online Demo</h3>
+        <p class="text-gray-700 mb-4">Catálogo con carrito en localStorage. (Backend PHP+MySQL requiere instalación local).</p>
+        <span class="text-brand font-semibold">Ver demo →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Recursos -->
+<section id="recursos" class="py-20 px-4 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-azul mb-4">Recursos y guías</h2>
+    <p class="text-center text-gray-600 mb-12">Material complementario para profundizar en cada tema</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/blob/main/docs/01-tokens-y-ahorro.md" target="_blank" class="block p-6 bg-white rounded-xl card-hover">
+        <div class="text-4xl mb-3">💰</div>
+        <h3 class="font-bold text-lg text-azul">Cómo ahorrar tokens</h3>
+        <p class="text-gray-600 text-sm">10 reglas + comparativa derrochador vs económico (1.200 vs 180 tokens, mismo resultado).</p>
+      </a>
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/blob/main/docs/02-modelos-de-claude.md" target="_blank" class="block p-6 bg-white rounded-xl card-hover">
+        <div class="text-4xl mb-3">🤖</div>
+        <h3 class="font-bold text-lg text-azul">Modelos de Claude</h3>
+        <p class="text-gray-600 text-sm">Diferencias entre Opus, Sonnet y Haiku. Cuándo usar cada uno.</p>
+      </a>
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/blob/main/docs/03-skills-completo.md" target="_blank" class="block p-6 bg-white rounded-xl card-hover">
+        <div class="text-4xl mb-3">🛠</div>
+        <h3 class="font-bold text-lg text-azul">Guía completa de Skills</h3>
+        <p class="text-gray-600 text-sm">5 opciones para descargar skills desde GitHub. Ubicaciones, errores, creación propia.</p>
+      </a>
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/blob/main/docs/04-mcp-paso-a-paso.md" target="_blank" class="block p-6 bg-white rounded-xl card-hover">
+        <div class="text-4xl mb-3">🔌</div>
+        <h3 class="font-bold text-lg text-azul">MCP paso a paso</h3>
+        <p class="text-gray-600 text-sm">Configuraciones listas para filesystem, MySQL, GitHub. Seguridad y catálogo oficial.</p>
+      </a>
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/prompts-maestros" target="_blank" class="block p-6 bg-white rounded-xl card-hover">
+        <div class="text-4xl mb-3">📋</div>
+        <h3 class="font-bold text-lg text-azul">11 prompts maestros</h3>
+        <p class="text-gray-600 text-sm">Listos para copiar y pegar en clase. PM-01 a PM-11 cubriendo todo el curso.</p>
+      </a>
+      <a href="https://github.com/jomarbp/programando-con-claude-ia/tree/main/scripts" target="_blank" class="block p-6 bg-white rounded-xl card-hover">
+        <div class="text-4xl mb-3">⚙️</div>
+        <h3 class="font-bold text-lg text-azul">Scripts de instalación</h3>
+        <p class="text-gray-600 text-sm">PowerShell + Bash. Instalan automáticamente las skills oficiales de Anthropic.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Start -->
+<section class="py-20 px-4 gradient-hero text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Empieza en 3 pasos</h2>
+    <p class="text-lg opacity-90 mb-12">Clona el repo, instala las skills y empieza el curso.</p>
+
+    <div class="bg-black/30 backdrop-blur rounded-2xl p-6 text-left mb-8 font-mono text-sm overflow-x-auto">
+      <div class="text-orange-300"># 1. Clonar el repositorio</div>
+      <div>git clone https://github.com/jomarbp/programando-con-claude-ia.git</div>
+      <div>cd programando-con-claude-ia</div>
+      <div class="mt-4 text-orange-300"># 2. Instalar skills oficiales (Windows)</div>
+      <div>.\scripts\instalar-skills.ps1</div>
+      <div class="mt-4 text-orange-300"># 3. Empezar el curso</div>
+      <div>code .  <span class="text-gray-400"># o abre la carpeta en tu editor favorito</span></div>
+    </div>
+
+    <a href="https://github.com/jomarbp/programando-con-claude-ia" target="_blank" class="inline-block px-8 py-4 bg-white text-azul rounded-lg font-bold hover:bg-gray-100 transition shadow-lg">⭐ Star en GitHub</a>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-20 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl md:text-5xl font-bold text-azul mb-4">¿Listo para empezar?</h2>
+    <p class="text-gray-600 mb-8">Contáctanos por WhatsApp para inscribirte al próximo curso presencial.</p>
+
+    <a href="https://wa.me/51970779871" target="_blank" class="inline-block px-8 py-4 bg-green-500 text-white rounded-lg font-bold hover:bg-green-600 transition shadow-lg">
+      💬 WhatsApp: 970 779 871
+    </a>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6 text-center">
+      <div class="p-4">
+        <div class="text-3xl mb-2">🎓</div>
+        <h3 class="font-bold text-azul">Certificado digital</h3>
+        <p class="text-sm text-gray-600">Al completar el curso</p>
+      </div>
+      <div class="p-4">
+        <div class="text-3xl mb-2">🎁</div>
+        <h3 class="font-bold text-azul">Sorteo Claude Pro</h3>
+        <p class="text-sm text-gray-600">Entre los participantes</p>
+      </div>
+      <div class="p-4">
+        <div class="text-3xl mb-2">📚</div>
+        <h3 class="font-bold text-azul">Material completo</h3>
+        <p class="text-sm text-gray-600">Acceso de por vida en GitHub</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 px-4 bg-azul text-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-bold text-xl mb-2">OJB<span class="text-brand">.</span></h3>
+        <p class="text-gray-300 text-sm">Soluciones Informáticas. Convertimos ideas en realidad con IA.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Curso</h4>
+        <ul class="space-y-1 text-sm text-gray-300">
+          <li><a href="#bloques" class="hover:text-brand">Itinerario</a></li>
+          <li><a href="#recursos" class="hover:text-brand">Recursos</a></li>
+          <li><a href="#demos" class="hover:text-brand">Demos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Contacto</h4>
+        <ul class="space-y-1 text-sm text-gray-300">
+          <li>📱 <a href="https://wa.me/51970779871" class="hover:text-brand">WhatsApp 970 779 871</a></li>
+          <li>🌐 <a href="https://github.com/jomarbp" target="_blank" class="hover:text-brand">@jomarbp en GitHub</a></li>
+          <li>📍 Lima, Perú</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/20 mt-8 pt-6 text-center text-sm text-gray-400">
+      © 2026 OJB Soluciones Informáticas · Hecho con ❤️ y Claude IA
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
