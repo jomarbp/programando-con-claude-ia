@@ -3,6 +3,8 @@
 > ⏱ **Duración**: 15 minutos
 > 🎯 **Objetivo**: Que todos los participantes tengan Claude Code funcionando.
 
+> 📘 **Lectura previa recomendada**: [Introducción a los fundamentos](introduccion-fundamentos.md) — qué es Claude Code, Skills, MCP, versión gratis vs paga, ventajas y desventajas (15 min).
+
 ---
 
 ## 📋 Agenda del bloque
